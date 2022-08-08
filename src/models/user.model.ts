@@ -1,17 +1,26 @@
-import { Column, Model, Table, HasMany } from 'sequelize-typescript';
-import { InstanceUpdateOptions } from 'sequelize/types';
+import { Column, Table, Model } from 'sequelize-typescript';
+import { UUIDV4 } from 'sequelize';
 
 @Table
 export class User extends Model {
-  @Column({primaryKey:true})
+  @Column({ primaryKey: true, defaultValue: UUIDV4() })
   id: string;
 
   @Column
-  firstName: string;
-
-  @Column
   userName: string;
+  
+  // @Column
+  // pass: string;
 
-  @Column({ defaultValue: true })
-  isActive: boolean;
+  // @Column
+  // firstname: string;
+
+  // @Column
+  // lastname: string;
+
+  // @Column
+  // email: string;
+
+  // @Column
+  // phone: string;
 }
